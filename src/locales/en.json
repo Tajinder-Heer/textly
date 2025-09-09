@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "Textly",
+    "subtitle": "AI OCR & Text Corrector"
+  },
+  "upload": {
+    "title": "Upload File",
+    "description": "Upload an image or PDF to extract Punjabi text.",
+    "cta": "Click to upload or drag & drop",
+    "supports": "Supports: PNG, JPG, PDF",
+    "pdfReady": "PDF ready for text extraction."
+  },
+  "enhancement": {
+    "title": "Image Enhancement (Optional)",
+    "brightness": "Brightness",
+    "contrast": "Contrast",
+    "grayscale": "Grayscale"
+  },
+  "crop": {
+    "cropImage": "Crop Image",
+    "done": "Done Cropping"
+  },
+  "extract": {
+    "button": "Extract Text",
+    "clear": "Clear",
+    "engineTitle": "Choose Extraction Engine",
+    "tesseract": "Tesseract OCR",
+    "ai": "AI OCR"
+  },
+  "result": {
+    "title": "Extracted Text",
+    "description": "View, edit, and correct the text from your file.",
+    "extracting": "Extracting text...",
+    "extractingAi": "AI is extracting text, please wait...",
+    "placeholder": "Extracted text will appear here...",
+    "refineWithAi": "Refine with AI",
+    "copy": "Copy",
+    "download": "Download .docx"
+  },
+  "ocr": {
+    "processing": "Processing, please wait...",
+    "fail": "Failed to extract text. Please try again.",
+    "processingPage": "Processing page",
+    "of": "of"
+  },
+  "proofread": {
+    "title": "Proofread Text",
+    "description": "Paste your text or upload a Word document to check for spelling and grammar.",
+    "pasteTitle": "Paste Text",
+    "pastePlaceholder": "Paste your text here to get started...",
+    "or": "OR",
+    "uploadTitle": "Upload Document",
+    "uploadCta": "Click to upload or drag & drop",
+    "uploadSupports": "Supports: .docx",
+    "button": "Proofread with AI",
+    "processing": "AI is proofreading your text...",
+    "resultTitle": "Proofread Result"
+  },
+  "toast": {
+    "unsupportedFileTypeTitle": "Unsupported File Type",
+    "unsupportedFileTypeDesc": "Please upload an image (PNG, JPG) or a PDF file.",
+    "unsupportedDocxTypeDesc": "Please upload a .docx file.",
+    "pdfErrorTitle": "PDF Processing Error",
+    "pdfErrorDesc": "Could not read or process the PDF file.",
+    "docxErrorTitle": "Word Doc Processing Error",
+    "docxErrorDesc": "Could not read or process the .docx file.",
+    "ocrFailedTitle": "OCR Failed",
+    "ocrFailedDesc": "An error occurred during text extraction.",
+    "aiOcrFailedTitle": "AI OCR Failed",
+    "aiOcrFailedDesc": "The AI model could not extract text from the file.",
+    "aiSuccessTitle": "AI Correction Successful",
+    "aiSuccessDesc": "The text has been automatically corrected.",
+    "aiFailedTitle": "AI Correction Failed",
+    "aiFailedDesc": "Could not correct the text at this time.",
+    "proofreadFailedTitle": "AI Proofread Failed",
+    "proofreadFailedDesc": "Could not proofread the text at this time.",
+    "copied": "Copied to clipboard!",
+    "copyFailedTitle": "Failed to copy"
+  }
+}

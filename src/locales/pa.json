@@ -1,0 +1,62 @@
+{
+  "header": {
+    "title": "ਅੱਖਰ",
+    "subtitle": "ਪੰਜਾਬੀ OCR ਅਤੇ ਟੈਕਸਟ ਸੁਧਾਰਕ"
+  },
+  "upload": {
+    "title": "ਫਾਈਲ ਅੱਪਲੋਡ ਕਰੋ",
+    "description": "ਪੰਜਾਬੀ ਟੈਕਸਟ ਕੱਢਣ ਲਈ ਇੱਕ ਚਿੱਤਰ ਜਾਂ PDF ਅੱਪਲੋਡ ਕਰੋ।",
+    "cta": "ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ ਜਾਂ ਡਰੈਗ ਅਤੇ ਡ੍ਰੌਪ ਕਰੋ",
+    "supports": "ਸਮਰਥਨ ਕਰਦਾ ਹੈ: PNG, JPG, PDF",
+    "pdfReady": "PDF ਟੈਕਸਟ ਕੱਢਣ ਲਈ ਤਿਆਰ ਹੈ।"
+  },
+  "enhancement": {
+    "title": "ਚਿੱਤਰ ਸੁਧਾਰ (ਵਿਕਲਪਿਕ)",
+    "brightness": "ਚਮਕ",
+    "contrast": "ਕੰਟਰਾਸਟ",
+    "grayscale": "ਗ੍ਰੇਸਕੇਲ"
+  },
+  "crop": {
+    "cropImage": "ਚਿੱਤਰ ਕੱਟੋ",
+    "done": "ਕ੍ਰੌਪਿੰਗ ਹੋ ਗਈ"
+  },
+  "extract": {
+    "button": "ਟੈਕਸਟ ਕੱਢੋ",
+    "clear": "ਸਾਫ਼ ਕਰੋ",
+    "engineTitle": "ਐਕਸਟਰੈਕਸ਼ਨ ਇੰਜਣ ਚੁਣੋ",
+    "tesseract": "ਟੈਸਰੈਕਟ OCR",
+    "ai": "AI OCR"
+  },
+  "result": {
+    "title": "ਕੱਢਿਆ ਗਿਆ ਟੈਕਸਟ",
+    "description": "ਆਪਣੀ ਫਾਈਲ ਤੋਂ ਟੈਕਸਟ ਵੇਖੋ, ਸੰਪਾਦਿਤ ਕਰੋ ਅਤੇ ਸਹੀ ਕਰੋ।",
+    "extracting": "ਟੈਕਸਟ ਕੱਢਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+    "extractingAi": "AI ਟੈਕਸਟ ਕੱਢ ਰਿਹਾ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ...",
+    "placeholder": "ਕੱਢਿਆ ਗਿਆ ਟੈਕਸਟ ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗਾ...",
+    "refineWithAi": "AI ਨਾਲ ਸੁਧਾਰੋ",
+    "copy": "ਕਾਪੀ ਕਰੋ",
+    "download": "ਡਾਊਨਲੋਡ .txt"
+  },
+  "ocr": {
+    "processing": "ਪ੍ਰੋਸੈਸਿੰਗ ਜਾਰੀ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ...",
+    "fail": "ਟੈਕਸਟ ਕੱਢਣ ਵਿੱਚ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "processingPage": "ਪੰਨੇ ਦੀ ਪ੍ਰੋਸੈਸਿੰਗ ਹੋ ਰਹੀ ਹੈ",
+    "of": "ਵਿੱਚੋਂ"
+  },
+  "toast": {
+    "unsupportedFileTypeTitle": "ਅਸਮਰਥਿਤ ਫਾਈਲ ਕਿਸਮ",
+    "unsupportedFileTypeDesc": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਚਿੱਤਰ (PNG, JPG) ਜਾਂ ਇੱਕ PDF ਫਾਈਲ ਅੱਪਲੋਡ ਕਰੋ।",
+    "pdfErrorTitle": "PDF ਪ੍ਰੋਸੈਸਿੰਗ ਵਿੱਚ ਗਲਤੀ",
+    "pdfErrorDesc": "PDF ਫਾਈਲ ਨੂੰ ਪੜ੍ਹਿਆ ਜਾਂ ਸੰਸਾਧਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।",
+    "ocrFailedTitle": "OCR ਅਸਫਲ",
+    "ocrFailedDesc": "ਟੈਕਸਟ ਕੱਢਣ ਦੌਰਾਨ ਇੱਕ ਗਲਤੀ ਆਈ।",
+    "aiOcrFailedTitle": "AI OCR ਅਸਫਲ",
+    "aiOcrFailedDesc": "AI ਮਾਡਲ ਫਾਈਲ ਤੋਂ ਟੈਕਸਟ ਨਹੀਂ ਕੱਢ ਸਕਿਆ।",
+    "aiSuccessTitle": "AI ਸੁਧਾਰ ਸਫਲ",
+    "aiSuccessDesc": "ਟੈਕਸਟ ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਸਹੀ ਕੀਤਾ ਗਿਆ ਹੈ।",
+    "aiFailedTitle": "AI ਸੁਧਾਰ ਅਸਫਲ",
+    "aiFailedDesc": "ਇਸ ਸਮੇਂ ਟੈਕਸਟ ਨੂੰ ਸਹੀ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।",
+    "copied": "ਕਲਿੱਪਬੋਰਡ 'ਤੇ ਕਾਪੀ ਕੀਤਾ ਗਿਆ!",
+    "copyFailedTitle": "ਕਾਪੀ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
+  }
+}
