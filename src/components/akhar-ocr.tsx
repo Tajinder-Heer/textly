@@ -191,7 +191,6 @@ export function AkharOcr() {
       
       let fullText = "";
       const worker = await Tesseract.createWorker(ocrLanguage, 1, {
-        langPath: 'https://unpkg.com/@tess-data/',
         logger: (m) => {
           if (m.status === "recognizing text") {
             const pageProgress = m.progress / pdf.numPages;
@@ -263,7 +262,6 @@ export function AkharOcr() {
       }
 
       const worker = await Tesseract.createWorker(ocrLanguage, 1, {
-        langPath: 'https://unpkg.com/@tess-data/',
         logger: (m) => {
           if (m.status === "recognizing text") {
             setProgress(Math.round(m.progress * 100));
