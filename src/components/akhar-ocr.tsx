@@ -191,7 +191,9 @@ export function AkharOcr() {
       
       let fullText = "";
       const worker = await Tesseract.createWorker(ocrLanguage, 1, {
-        langPath: '/tessdata',
+        corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@v5/tesseract-core.wasm.js',
+        workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@v5/dist/worker.min.js',
+        langPath: 'https://cdn.jsdelivr.net/npm/tessdata_fast@1.0.0/fast',
         logger: (m) => {
           if (m.status === "recognizing text") {
             const pageProgress = m.progress / pdf.numPages;
@@ -263,7 +265,9 @@ export function AkharOcr() {
       }
 
       const worker = await Tesseract.createWorker(ocrLanguage, 1, {
-        langPath: '/tessdata',
+        corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@v5/tesseract-core.wasm.js',
+        workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@v5/dist/worker.min.js',
+        langPath: 'https://cdn.jsdelivr.net/npm/tessdata_fast@1.0.0/fast',
         logger: (m) => {
           if (m.status === "recognizing text") {
             setProgress(Math.round(m.progress * 100));
