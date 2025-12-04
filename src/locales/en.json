@@ -56,6 +56,19 @@
     "processing": "AI is proofreading your text...",
     "resultTitle": "Proofread Result"
   },
+  "translate": {
+    "title": "Translate Text",
+    "description": "Paste your text or upload a Word document to Translate.",
+    "pasteTitle": "Paste Text",
+    "pastePlaceholder": "Paste your text here to get started...",
+    "or": "OR",
+    "uploadTitle": "Upload Document",
+    "uploadCta": "Click to upload or drag & drop",
+    "uploadSupports": "Supports: .docx",
+    "button": "Translate with AI",
+    "processing": "AI is Translating your text...",
+    "resultTitle": "Translation Result"
+  },
   "toast": {
     "unsupportedFileTypeTitle": "Unsupported File Type",
     "unsupportedFileTypeDesc": "Please upload an image (PNG, JPG) or a PDF file.",

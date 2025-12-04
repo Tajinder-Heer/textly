@@ -50,6 +50,39 @@ function HomeComponent() {
                   </Button>
                 </CardContent>
               </Card>
+              {/* Image to PDF Feature */}
+              <Card className="hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-center gap-3 text-2xl font-headline">
+                    Image to PDF
+                  </CardTitle>
+                  <CardDescription className="pt-2">
+                    Upload images and generate a PDF file.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild size="lg">
+                    <Link href="/image-to-pdf">Start Image to PDF</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-center gap-3 text-2xl font-headline">
+                    Translate Text.
+                  </CardTitle>
+                  <CardDescription className="pt-2">
+                    Paste your text or upload a Word document to translate by AI.
+
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild size="lg">
+                    <Link href="/translate">Start translation</Link>
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </main>

@@ -33,7 +33,7 @@ const prompt = ai.definePrompt({
   name: 'extractTextFromFilePrompt',
   input: {schema: ExtractTextFromFileInputSchema},
   output: {schema: ExtractTextFromFileOutputSchema},
-  prompt: `You are an expert in performing OCR on documents. Given the following file, extract all the text content. It is crucial that you preserve the original formatting, including line breaks, spacing, and layout, as accurately as possible. The text is in Punjabi.
+  prompt: `You are an expert in performing OCR on documents. Given the following file, extract all the text content. It is crucial that you preserve the original formatting, keep the between paragraph spacing but join the line break within single paragraph, and layout, as accurately as possible. The text is in Punjabi.
 
 File: {{media url=fileDataUri}}`,
 });

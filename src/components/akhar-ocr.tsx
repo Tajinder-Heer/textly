@@ -37,6 +37,7 @@ import {
 
 type OcrStatus = "idle" | "processing" | "success" | "error" | "correcting";
 type OcrEngine = "tesseract" | "ai";
+type OcrLanguage = "eng" | "pan" | "hin" | "eng+pan" | "eng+hin" | "pan+hin" | "eng+pan+hin";
 
 export function AkharOcr() {
   const { t } = useLanguage();
@@ -55,6 +56,7 @@ export function AkharOcr() {
   const [completedCrop, setCompletedCrop] = useState<Crop | null>(null);
   const [isCropping, setIsCropping] = useState(false);
   const [ocrEngine, setOcrEngine] = useState<OcrEngine>("tesseract");
+  const [ocrLanguage, setOcrLanguage] = useState<OcrLanguage>("eng+pan+hin");
 
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -109,6 +111,9 @@ export function AkharOcr() {
     if (!ctx) {
       return Promise.reject(new Error('Failed to get canvas context'));
     }
+  
+    // Apply filters to the canvas context
+    ctx.filter = `brightness(${filters.brightness}%) contrast(${filters.contrast}%) grayscale(${filters.grayscale}%)`;
   
     ctx.drawImage(
       image,
@@ -185,7 +190,8 @@ export function AkharOcr() {
       const pdf = await pdfjsLib.getDocument(typedarray).promise;
       
       let fullText = "";
-      const worker = await Tesseract.createWorker("pan", 1, {
+      const worker = await Tesseract.createWorker(ocrLanguage, 1, {
+        langPath: '/tessdata',
         logger: (m) => {
           if (m.status === "recognizing text") {
             const pageProgress = m.progress / pdf.numPages;
@@ -251,11 +257,13 @@ export function AkharOcr() {
 
     try {
       let imageUrl = previewUrl;
-      if (isCropping && completedCrop && imageRef.current) {
+      // Apply crop if a crop has been made (even if not currently in crop mode)
+      if (completedCrop && imageRef.current) {
         imageUrl = await getCroppedImg(imageRef.current, completedCrop);
       }
 
-      const worker = await Tesseract.createWorker("pan", 1, {
+      const worker = await Tesseract.createWorker(ocrLanguage, 1, {
+        langPath: '/tessdata',
         logger: (m) => {
           if (m.status === "recognizing text") {
             setProgress(Math.round(m.progress * 100));
@@ -432,6 +440,20 @@ export function AkharOcr() {
                       onLoad={onImageLoad}
                     />
                   </ReactCrop>
+                ) : completedCrop ? (
+                  // Show cropped preview when not in crop mode but crop exists
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img
+                      ref={imageRef}
+                      src={previewUrl!}
+                      alt="Cropped preview"
+                      className="max-h-full max-w-full object-contain transition-all duration-300"
+                      style={{
+                        ...filterStyle,
+                        clipPath: `inset(${completedCrop.y}px ${100 - (completedCrop.x + completedCrop.width)}px ${100 - (completedCrop.y + completedCrop.height)}px ${completedCrop.x}px)`,
+                      }}
+                    />
+                  </div>
                 ) : (
                   <img ref={imageRef} src={previewUrl!} alt="File preview" className="max-h-full max-w-full object-contain transition-all duration-300" style={filterStyle} />
                 )}
@@ -475,14 +497,63 @@ export function AkharOcr() {
                 </CardContent>
               </Card>
 
+              {ocrEngine === "tesseract" && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Language Selection</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <RadioGroup value={ocrLanguage} onValueChange={(value) => setOcrLanguage(value as OcrLanguage)} className="flex flex-wrap gap-4">
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="eng" id="eng" />
+                        <Label htmlFor="eng">English</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="pan" id="pan" />
+                        <Label htmlFor="pan">Punjabi</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="hin" id="hin" />
+                        <Label htmlFor="hin">Hindi</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="eng+pan" id="eng-pan" />
+                        <Label htmlFor="eng-pan">English + Punjabi</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="eng+hin" id="eng-hin" />
+                        <Label htmlFor="eng-hin">English + Hindi</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="pan+hin" id="pan-hin" />
+                        <Label htmlFor="pan-hin">Punjabi + Hindi</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="eng+pan+hin" id="eng-pan-hin" />
+                        <Label htmlFor="eng-pan-hin">All (English + Punjabi + Hindi)</Label>
+                      </div>
+                    </RadioGroup>
+                  </CardContent>
+                </Card>
+              )}
+
               <div className="flex flex-wrap gap-2">
                 {!isPdf && (
-                   <Button onClick={() => setIsCropping(!isCropping)} variant={isCropping ? "default" : "outline"}>
+                   <Button onClick={() => {
+                     if (isCropping) {
+                       // Exiting crop mode - keep the crop selection
+                       setIsCropping(false);
+                     } else {
+                       // Entering crop mode - reset crop to full image
+                       if (crop) setCompletedCrop(crop);
+                       setIsCropping(true);
+                     }
+                   }} variant={isCropping ? "default" : "outline"}>
                       <CropIcon className="mr-2 h-4 w-4" />
                       {isCropping ? t('crop.done') : t('crop.cropImage')}
                     </Button>
                 )}
-                <Button onClick={handleOcr} disabled={status === "processing"}>
+                <Button onClick={handleOcr} disabled={status === "processing" || !file}>
                   {status === "processing" && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   {t('extract.button')}
                 </Button>
